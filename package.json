@@ -1,0 +1,26 @@
+{
+  "name": "divide-ai",
+  "version": "1.0.0",
+  "description": "Aplicação web para divisão de contas entre amigos",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm run dev --workspace=@divide-ai/api",
+    "dev:web": "npm run dev --workspace=@divide-ai/web",
+    "build": "npm run build --workspace=@divide-ai/api && npm run build --workspace=@divide-ai/web",
+    "build:api": "npm run build --workspace=@divide-ai/api",
+    "build:web": "npm run build --workspace=@divide-ai/web",
+    "install:all": "npm install && npm install --workspace=@divide-ai/api && npm install --workspace=@divide-ai/web",
+    "clean": "rm -rf node_modules packages/*/node_modules packages/*/dist",
+    "test:api": "node test-api.js",
+    "preview": "npm run preview --workspace=@divide-ai/web"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Victor Boaventura",
+  "license": "MIT"
+}
