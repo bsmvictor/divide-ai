@@ -2,6 +2,12 @@
 
 Uma aplicação web moderna para divisão de contas entre amigos, desenvolvida com React e Node.js.
 
+## 🌐 Demo Online
+
+**🚀 Acesse a aplicação:** https://bsmvictor.github.io/divide-ai/
+
+> A aplicação está hospedada no GitHub Pages e funciona completamente no frontend com simulação da API para demonstração.
+
 ## 🚀 Funcionalidades
 
 - **Divisão Simples**: Divide o valor total igualmente entre todos os participantes
@@ -10,6 +16,8 @@ Uma aplicação web moderna para divisão de contas entre amigos, desenvolvida c
 - **Descontos**: Aplica descontos ao valor total
 - **Compartilhamento**: Compartilha o resultado via área de transferência ou Web Share API
 - **Interface Moderna**: Design limpo e responsivo com Material-UI
+- **Dark/Light Mode**: Tema escuro em preto puro e tema claro
+- **Cards Transparentes**: Design minimalista sem emojis
 
 ## 🏗️ Arquitetura
 
@@ -28,7 +36,7 @@ Este projeto utiliza uma arquitetura de monorepo com as seguintes tecnologias:
 - **React Router** para navegação
 - **Axios** para comunicação com API
 - **React Hot Toast** para notificações
-- **Design responsivo**
+- **Design responsivo** e minimalista
 
 ## 📱 Screenshots
 
@@ -45,7 +53,7 @@ Este projeto utiliza uma arquitetura de monorepo com as seguintes tecnologias:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/divide-ai.git
+git clone https://github.com/bsmvictor/divide-ai.git
 cd divide-ai
 ```
 
@@ -93,6 +101,57 @@ npm run dev:web
 - **Web**: http://localhost:3000
 - **API**: http://localhost:3001
 - **Health Check**: http://localhost:3001/health
+
+## 🌐 Deploy
+
+### GitHub Pages (Frontend)
+
+O frontend é automaticamente deployado no GitHub Pages a cada push na branch `main`:
+
+- **URL**: https://bsmvictor.github.io/divide-ai/
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Build automático**: Sim
+- **Funciona offline**: Sim (com simulação da API)
+
+### Backend (API)
+
+Para hospedar a API, você pode usar:
+
+#### Railway
+```bash
+# 1. Instale o Railway CLI
+npm install -g @railway/cli
+
+# 2. Faça login
+railway login
+
+# 3. Deploy da API
+cd packages/api
+railway deploy
+```
+
+#### Heroku
+```bash
+# 1. Instale o Heroku CLI
+# 2. Faça login
+heroku login
+
+# 3. Crie um app
+heroku create divide-ai-api
+
+# 4. Deploy
+git subtree push --prefix packages/api heroku main
+```
+
+#### Vercel
+```bash
+# 1. Instale o Vercel CLI
+npm install -g vercel
+
+# 2. Deploy da API
+cd packages/api
+vercel
+```
 
 ## 📚 Documentação da API
 
@@ -174,6 +233,7 @@ divide-ai/
 │   │   ├── index.html          # HTML principal
 │   │   └── package.json
 │   │
+├── .github/                    # GitHub Actions e templates
 ├── package.json                # Configuração do monorepo
 └── README.md
 ```
@@ -181,7 +241,7 @@ divide-ai/
 ## 🎯 Como Usar
 
 ### Divisão Simples
-1. Acesse http://localhost:3000
+1. Acesse https://bsmvictor.github.io/divide-ai/
 2. Clique em "Divisão Simples"
 3. Escolha entre inserir o valor total ou adicionar itens individuais
 4. Informe o número de pessoas
@@ -196,25 +256,21 @@ divide-ai/
 4. Configure gorjeta e desconto (opcional)
 5. Calcule e compartilhe o resultado
 
-## 🌐 Deploy
+## 🎨 Design System
 
-### Frontend (Vercel/Netlify)
-```bash
-# Build do frontend
-npm run build:web
+### Características
+- **Minimalista**: Interface limpa sem elementos desnecessários
+- **Dark/Light Mode**: Tema escuro em preto puro (#0a0a0a)
+- **Cards Transparentes**: Apenas bordas visíveis
+- **Sem Emojis**: Design profissional e atemporal
+- **Responsivo**: Funciona em todos os dispositivos
+- **Acessível**: WCAG AA compliant
 
-# Os arquivos estarão em packages/web/dist
-```
-
-### Backend (Railway/Heroku)
-```bash
-# Build do backend
-npm run build:api
-
-# Configure as variáveis de ambiente:
-# PORT=3001
-# NODE_ENV=production
-```
+### Tecnologias de Design
+- **Fonte**: Inter (Google Fonts)
+- **Cores**: Escala de cinzas neutros
+- **Componentes**: Material-UI customizado
+- **Animações**: Transições suaves de 0.3s
 
 ## 🤝 Contribuindo
 
@@ -224,6 +280,8 @@ npm run build:api
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
+Veja o [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes.
+
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
@@ -231,7 +289,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👨‍💻 Autor
 
 **Victor Boaventura**
-- GitHub: [@victorboaventura](https://github.com/victorboaventura)
+- GitHub: [@bsmvictor](https://github.com/bsmvictor)
 - LinkedIn: [Victor Boaventura](https://linkedin.com/in/victorboaventura)
 
 ## 🙏 Agradecimentos
@@ -239,7 +297,19 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 - [Material-UI](https://mui.com/) pelos componentes UI
 - [Vite](https://vitejs.dev/) pela ferramenta de build
 - [Express.js](https://expressjs.com/) pelo framework web
+- [GitHub Pages](https://pages.github.com/) pela hospedagem gratuita
+
+## 🌟 Funcionalidades Futuras
+
+- [ ] PWA (Progressive Web App)
+- [ ] Histórico de divisões
+- [ ] Múltiplas moedas
+- [ ] Exportar para PDF
+- [ ] Integração com apps de pagamento
+- [ ] Modo offline completo
 
 ---
 
 ⭐ Se este projeto te ajudou, considere dar uma estrela no repositório!
+
+**🚀 Acesse agora:** https://bsmvictor.github.io/divide-ai/

@@ -11,9 +11,12 @@ import CustomDivisionPage from './pages/CustomDivisionPage';
 import ResultPage from './pages/ResultPage';
 
 function App() {
+  // Base path para GitHub Pages
+  const basename = import.meta.env.PROD ? '/divide-ai' : '';
+
   return (
     <ThemeContextProvider>
-      <Router>
+      <Router basename={basename}>
         <div className="App">
           <Header />
           <Container 
